@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School ChatRoom</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://bootstraplogos.com/wp-content/uploads/edd/2017/11/logo-27.png">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    
+    <script>
+
+    </script>
+</head>
+<body class="bg-dark text-light">
+    
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark shadow">
+        <div class="container">
+            <div class="text-light log"><img src="https://bootstraplogos.com/wp-content/uploads/edd/2017/11/logo-27.png" height="30px" width="30px" alt="">orever ChatRoom</div>
+
+            <div class="ico">
+                <a href="vidchat.html" class="material-symbols-outlined navbar-brand">
+                    videocam
+                </a>
+                <a href="index.html" class="material-symbols-outlined navbar-brand">
+                    logout
+                </a>                
+            </div>
+
+        </div>
+
+    </nav>
+
+                 <!-- *********************************** Loader *************************** -->
+
+                 <div class="pb-5" id="cssload-contain">
+                    <div class="cssload-wrap" id="cssload-wrap1">
+                        <div class="cssload-ball" id="cssload-ball1"></div>
+                    </div>
+                
+                    <div class="cssload-wrap" id="cssload-wrap2">
+                        <div class="cssload-ball" id="cssload-ball2"></div>
+                    </div>
+                    
+                    <div class="cssload-wrap" id="cssload-wrap3">
+                        <div class="cssload-ball" id="cssload-ball3"></div>
+                    </div>
+                    
+                    <div class="cssload-wrap" id="cssload-wrap4">
+                        <div class="cssload-ball" id="cssload-ball4"></div>
+                    </div>
+                
+                </div>
+
+    <section>
+        <div class="container">
+            <div id="content" class="container cont pb-5 p-3">
+                <!-- <p id="name" class="p-0"></p> -->
+               <div id="messaage" style="top:0" class=""></div>
+               <div id="lastMsg" style="bottom:0" class="m-5"></div>
+            </div>
+            <!-- <div class="card mt-5 pb-5">
+
+                <div class="card-body pb-5">
+                    <h4 class="card-title">Title</h4>
+                    <p class="card-text">Text</p>
+                </div>
+                <div class="card-body pb-5">
+
+                </div>
+            </div>
+             -->
+
+
+
+
+
+
+      
+            <form onsubmit="return SendMessage();" id="" class=" form-group fixed-bottom">
+              <div class="inpt-msg pb-3 container d-flex">
+                <input type="text" id="message" autocomplete="off" class="form-control" name="" aria-describedby="helpId" placeholder="Say Hi ✌ ...">
+                <span class="material-symbols-outlined"><input type="submit" id="btn" class="btn btn-danger" value="send"></span>                  
+              </div>
+            </form>
+ 
+
+            </div>
+        </div>
+
+    </section>
+    
+    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+    <!-- or -->
+    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.js"></script>
+    
+
+    <script>
+        function scrollToBottom (id) {
+            var div = document.getElementById(id);
+            div.scrollTop = div.scrollHeight - div.clientHeight;
+        }
+        var myDiv = document.getElementById("content");
+        myDiv.scrollTop = myDiv.scrollHeight;
+    </script>
+
+    <script>
+        $(document).ready(function(){
+        var tmo = null;
+        $("#message").on("input", function(){
+            document.getElementById("typing").innerHTML = "Typing...";
+            
+            if (tmo) {
+            clearTimeout(tmo);
+            }
+            tmo = setTimeout(function () {
+            document.getElementById("typing").innerHTML = "";
+            }, 1000);
+            
+        });
+        
+        });
+    </script>
+
+
+
+    <script>
+
+                
+
+        setTimeout(() => {
+            const loader = document.getElementById('cssload-contain');
+
+
+            loader.style.display = 'none';
+        }, 7500)
+    </script>
+
+    <script>
+        var myName = localStorage.getItem("myName");
+
+        var resetValue = 0
+
+        localStorage.setItem("myName", resetValue);
+
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script>
+        let lastMsg = document.querySelector("#lastMsg")
+        let btn = document.querySelector("#btn")
+
+        btn.addEventListener("click", moveLast, true);
+
+        function moveLast(e) {
+            lastMsg.scrollIntoView({ behavior: "smooth" });
+        }
+
+    </script>
+
+</body>
+</html>
